@@ -27,6 +27,10 @@ class Route(models.Model):
     distance = models.DecimalField(max_digits=6, decimal_places=3, null=True, blank=True)
     duration = models.TimeField(null=True, blank=True)
     stops = models.ManyToManyField(Stop)
+    active = models.BooleanField(default=False)
+    valid_start = models.DateTimeField(null=True, blank=True)
+    expire = models.DateTimeField(null=True, blank=True)
+    cost = models.DecimalField(max_digits=3, blank=True, null=True)
 
     def __unicode__(self):
         return str(self.user) or super(Route,self).__unicode__()
@@ -56,3 +60,5 @@ class Bus(models.Model):
 
     class Meta:
         verbose_name_plural = "buses"
+
+

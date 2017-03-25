@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <th>
+        <td>Name</td>
+        <td>Duration</td>
+        <td>Start</td>
+        <td>End</td>
+        <td>Cost</td>
+    </th>
+    {% for route in routes %}
+    <tr class=""> <!-- may use cycle -->
+        <td>{{ route.name }}</td>
+        <td>{{ route.duration }}</td>
+        <td>{{ route.stops[0].location }}</td>
+        <td>{{ route.stops[-1].location }}</td>
+        <td>{{ route.cost }}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
